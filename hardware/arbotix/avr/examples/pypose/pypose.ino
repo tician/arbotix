@@ -56,6 +56,7 @@ void setup(){
     Serial.begin(38400); 
     drive.init();   
     pinMode(0,OUTPUT);          // status LED
+    commsTypeScan();  // Only needed if might have RS-485 servos.
 }
 
 /* 

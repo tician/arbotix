@@ -36,6 +36,24 @@ volatile int ax_rx_int_Pointer;
 unsigned char dynamixel_bus_config[AX12_MAX_SERVOS];
 #endif
 
+/** scan through range of servos to verify which bus interface to use */
+void commsTypeScan()
+{
+#if defined(AX_RX_SWITCHED)
+  // do a search for devices on the RX bus, default to AX if not found
+  int i;
+  for(i=0;i<AX12_MAX_SERVOS;i++)
+  {
+    dynamixel_bus_config[i] = 1;
+    if(ax12GetRegister(i+1, AX_ID, 1) != (i+1))
+    {
+      dynamixel_bus_config[i] = 0;
+    }
+  }
+#endif
+}
+
+
 /** helper functions to switch direction of comms */
 void setTX(int id){
     bitClear(UCSR1B, RXEN1); 

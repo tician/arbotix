@@ -132,6 +132,7 @@
 #define AX_BUZZER_INDEX             40
 
 void ax12Init(long baud);
+void commsTypeScan();  // checks which servos are TTL or RS-485 bus
 
 void setTXall();     // for sync write
 void setTX(int id);
@@ -159,10 +160,12 @@ extern unsigned char dynamixel_bus_config[AX12_MAX_SERVOS];
 #define TorqueOn(id) (ax12SetRegister(id, AX_TORQUE_ENABLE, 1))
 #define Relax(id) (ax12SetRegister(id, AX_TORQUE_ENABLE, 0))
 
-#define GetLeftIRData(id) (ax12GetRegister(id, AX_LEFT_IR_DATA))
-#define GetCenterIRData(id) (ax12GetRegister(id, AX_CENTER_IR_DATA))
-#define GetRightIRData(id) (ax12GetRegister(id, AX_RIGHT_IR_DATA))
-#define GetObstacles(id) (ax12GetRegister(id, OBSTACLE_DETECTION))
+#define GetTemperature(id) (ax12GetRegister(id, AX_PRESENT_TEMPERATURE, 1))
+
+#define GetLeftIRData(id) (ax12GetRegister(id, AX_LEFT_IR_DATA, 1))
+#define GetCenterIRData(id) (ax12GetRegister(id, AX_CENTER_IR_DATA, 1))
+#define GetRightIRData(id) (ax12GetRegister(id, AX_RIGHT_IR_DATA, 1))
+#define GetObstacles(id) (ax12GetRegister(id, OBSTACLE_DETECTION, 1))
 
 #define PlayTone(id, note) (ax12SetRegister(id, AX_BUZZER_INDEX, note))
 

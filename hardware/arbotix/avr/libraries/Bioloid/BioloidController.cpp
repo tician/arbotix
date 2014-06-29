@@ -30,8 +30,8 @@ BioloidController::BioloidController(long baud){
     // initialize
     for(i=0;i<AX12_MAX_SERVOS;i++){
         id_[i] = i+1;
-        pose_[i] = 512;
-        nextpose_[i] = 512;
+        pose_[i] = 512 << BIOLOID_SHIFT;
+        nextpose_[i] = 512 << BIOLOID_SHIFT;
     }
     interpolating = 0;
     playing = 0;
@@ -51,8 +51,8 @@ void BioloidController::setup(int servo_cnt){
     poseSize = servo_cnt;
     for(i=0;i<poseSize;i++){
         id_[i] = i+1;
-        pose_[i] = 512;
-        nextpose_[i] = 512;
+        pose_[i] = 512 << BIOLOID_SHIFT;
+        nextpose_[i] = 512 << BIOLOID_SHIFT;
     }
     interpolating = 0;
     playing = 0;

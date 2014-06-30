@@ -82,7 +82,7 @@ void printSensors()
 
 void setLEDs(int num)  // Sets LED states to 'num'
 {
-	// Set LEDs as if they were bits in a 3-bit number
+    // Set LEDs as if they were bits in a 3-bit number
     digitalWrite(0, (num&(1<<0)));
     digitalWrite(1, (num&(1<<1)));
     digitalWrite(2, (num&(1<<2)));
@@ -131,6 +131,7 @@ void makeActuatorHard(int servoNum)  // Restore torque and compliance to default
     ax12SetRegister(servoNum, AX_CCW_COMPLIANCE_SLOPE, 32);
 }
 
+
 //----------------------Start Void setup----------------------
 void setup(){
     //open the serial port
@@ -138,17 +139,18 @@ void setup(){
 
     delay(2000); // recommended pause
 
-	// Set 0, 1, and 2 as outputs for LEDs
+    // Set 0, 1, and 2 as outputs for LEDs
     pinMode (0,OUTPUT);
     pinMode (1,OUTPUT);
     pinMode (2,OUTPUT);
-	// Set 3 and 4 as inputs for tilt sensors
+    // Set 3 and 4 as inputs for tilt sensors
     pinMode(3, INPUT);
     pinMode(4, INPUT);
 
 
     // set defaults of global variables and take initial readings
     mode = 0;
+    flashLEDs(6);
 
     panh = 512;
     panadd = 0;
@@ -209,7 +211,7 @@ void loop(){
 // keyboard mode
     if(mode == 5){
         // Set LEDs to display binary '5'
-        flashLEDs(5);
+        setLEDs(5);
 
 //--------------------takes commands from the keyboard--------------------------
 // Servo command format: #nnpppp
@@ -226,7 +228,7 @@ void loop(){
             startByte = Serial.read();
             // toggle LED so we know johnny5 is alive
 //            digitalWrite(0,HIGH-digitalRead(0));
-            flashLEDs();
+            flashLEDs(5);
         } // end Serial.available()
 
         if(startByte == '#') {
@@ -326,7 +328,9 @@ void loop(){
                 }else if(startByte == '>'){ //if I press Right Kick
                     bioloid.playSeq(RightKick01);
                 }else if(startByte == '"'){ //if I press ` set mode to 0
-                    mode += 1;
+//                    mode += 1;
+                    mode = 0;
+                    flashLEDs(6);
                 }
                 //special commands from keyboard that sets specific servos to shooting.
 
@@ -346,7 +350,7 @@ void loop(){
             // toggle LED so we know johnny5 is alive
 //            digitalWrite(0,HIGH-digitalRead(0));
             // exact mode unknown, set all 3 LEDs to identify it as commander control
-            flashLEDs(7);
+            setLEDs(7);
 
             // only process commands if we aren't currently doing a sequence
             if(bioloid.playing == 0){       
@@ -357,7 +361,11 @@ void loop(){
 //------------------------resets mode to 0--------------------------------------
                     if(mode >= 6){
                         mode = 0;
+                        flashLEDs(6);
                         bioloid.playSeq(Defence01);
+                    }
+                    else{
+                        flashLEDs(mode);
                     }
                     bioloid.playSeq(slowjump);
                 }
@@ -367,7 +375,7 @@ void loop(){
 //---------------------------Initial mode-(kung fu)-----------------------------
                 if(mode==0){
                     // Set LEDs to display binary '6' since '0' is not helpful
-                    flashLEDs(6);
+                    setLEDs(6);
 
                     //use Button1 to change mode.
                     if(command.walkV > 80){
@@ -441,7 +449,7 @@ void loop(){
                     // Is anybody actually listening here? A physical Commander
                     //  with default firmware does not listen to anything sent
                     //  to it over Xbee.  Maybe a fit-pc2i listening in or emulating?
-                    printSensors();
+//                    printSensors();
                 }
 //-----------------------------end kungfu mode----------------------------------
 
@@ -451,7 +459,7 @@ void loop(){
 //------------------------------get up mode-------------------------------------
                 if(mode == 1){
                     // Set LEDs to display binary '1'
-                    flashLEDs(1);
+                    setLEDs(1);
 
                     //get up mode
                     if(command.walkV > 80){
@@ -508,7 +516,9 @@ void loop(){
                         bioloid.playSeq(Backup02);
                     }if(command.buttons&BUT_L6) {
                         //Neutral position
-                        mode -= 1;
+//                        mode -= 1;
+                        mode = 0;
+                        flashLEDs(6);
                     }if(command.buttons&BUT_RT) {
                         //Right attack
                         bioloid.playSeq(RightAttack01);
@@ -523,7 +533,7 @@ void loop(){
                     // Is anybody actually listening here? A physical Commander
                     //  with default firmware does not listen to anything sent
                     //  to it over Xbee.  Maybe a fit-pc2i listening in or emulating?
-                    printSensors();
+//                    printSensors();
                 }
 //----------------------------end get up mode-----------------------------------
 
@@ -533,7 +543,7 @@ void loop(){
 //------------------------cheesy moves mode-(soccer)----------------------------
                 if(mode == 2){
                     // Set LEDs to display binary '2'
-                    flashLEDs(2);
+                    setLEDs(2);
 
                     //special moves
                     if(command.walkV > 80){
@@ -617,7 +627,7 @@ void loop(){
                     // Is anybody actually listening here? A physical Commander
                     //  with default firmware does not listen to anything sent
                     //  to it over Xbee.  Maybe a fit-pc2i listening in or emulating?
-                    printSensors();
+//                    printSensors();
                 }
 //--------------------------end cheesy moves mode ------------------------------
 
@@ -627,7 +637,7 @@ void loop(){
 //-------------------------mech warfare mode -----------------------------------
                 if(mode == 3){
                     // Set LEDs to display binary '3'
-                    flashLEDs(3);
+                    setLEDs(3);
 
                     //int panh = 512;
                     panadd = (-float(command.lookH)/20);
@@ -714,13 +724,15 @@ void loop(){
                         bioloid.playSeq(Mechfire);
                     }if(command.buttons&BUT_L6) {
                         //reset to mode 0
-                        mode += 3;
+//                        mode += 3;
+                        mode = 0;
+                        flashLEDs(6);
                     }
 
                     // Is anybody actually listening here? A physical Commander
                     //  with default firmware does not listen to anything sent
                     //  to it over Xbee.  Maybe a fit-pc2i listening in or emulating?
-                    printSensors();
+//                    printSensors();
                 }
 //--------------------------end mech warfare mode ------------------------------
 
@@ -730,7 +742,7 @@ void loop(){
 //------------------------- arm control mode -----------------------------------
                 if(mode == 4){
                     // Set LEDs to display binary '4'
-                    flashLEDs(4);
+                    setLEDs(4);
 
                   //this sets the initial value of the variables
                     panadd = (-float(command.lookH)/20);
@@ -837,13 +849,15 @@ void loop(){
                         bioloid.playSeq(UpSlow01);
                     }if(command.buttons&BUT_L6) {
                         //reset to mode 0
-                        mode += 4;
+//                        mode += 4;
+                        mode = 0;
+                        flashLEDs(6);
                     }
                     
                     // Is anybody actually listening here? A physical Commander
                     //  with default firmware does not listen to anything sent
                     //  to it over Xbee.  Maybe a fit-pc2i listening in or emulating?
-                    printSensors();  // calls updateSensors() again, internally
+//                    printSensors();  // calls updateSensors() again, internally
 
                     // Temperature Safety Checks/Corrections on gripper servo
                     // updateSensors();

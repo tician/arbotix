@@ -12,7 +12,7 @@ arbotix.bootloader.unlock_bits=0x3F
 arbotix.bootloader.lock_bits=0x0F
 arbotix.build.mcu=atmega644p
 arbotix.build.f_cpu=16000000L
-arbotix.build.core=arbotix
+arbotix.build.core=arduino
 arbotix.build.variant=standard
 
 ##############################################################
@@ -29,7 +29,7 @@ arbotixrx.bootloader.unlock_bits=0x3F
 arbotixrx.bootloader.lock_bits=0x0F
 arbotixrx.build.mcu=atmega644p
 arbotixrx.build.f_cpu=16000000L
-arbotixrx.build.core=arbotix
+arbotixrx.build.core=arduino
 arbotixrx.build.variant=rxshield
 
 #####################################################################
@@ -46,7 +46,7 @@ arbotixrx.build.variant=rxshield
 #arbotix2.bootloader.lock_bits=0x0F
 #arbotix2.build.mcu=atmega644p
 #arbotix2.build.f_cpu=16000000L
-#arbotix2.build.core=arbotix
+#arbotix2.build.core=arduino
 #arbotix2.build.variant=arbotix2
 
 #####################################################################
@@ -63,6 +63,6 @@ arbotixrx.build.variant=rxshield
 #plus1280.bootloader.lock_bits=0x0F
 #plus1280.build.mcu=atmega1280
 #plus1280.build.f_cpu=16000000L
-#plus1280.build.core=arbotix
+#plus1280.build.core=arduino
 #plus1280.build.variant=arbotixPlus1280
 

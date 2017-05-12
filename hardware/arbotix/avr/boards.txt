@@ -1,68 +1,98 @@
-##############################################################
+# See: http://code.google.com/p/arduino/wiki/Platforms
 
-arbotix.name=ArbotiX
+menu.cpu=Processor
+
+##############################################################
+arbotix.name=Arbotix-M
+
+arbotix.upload.tool=avrdude
 arbotix.upload.protocol=arduino
-arbotix.upload.maximum_size=65536
+arbotix.upload.maximum_data_size=65536
 arbotix.upload.speed=38400
+
+arbotix.bootloader.tool=avrdude
 arbotix.bootloader.low_fuses=0xFF
 arbotix.bootloader.high_fuses=0xDC
 arbotix.bootloader.extended_fuses=0xFD
 arbotix.bootloader.file=atmega644p/ATmegaBOOT_644P.hex
 arbotix.bootloader.unlock_bits=0x3F
 arbotix.bootloader.lock_bits=0x0F
+
+# default board may be overridden by the cpu menu
 arbotix.build.mcu=atmega644p
 arbotix.build.f_cpu=16000000L
 arbotix.build.core=arduino
 arbotix.build.variant=standard
+arbotix.build.board=AVR_MEGA644P
 
 ##############################################################
 
 arbotixrx.name=ArbotiX w/ RX Shield
+
+arbotixrx.upload.tool=avrdude
 arbotixrx.upload.protocol=arduino
-arbotixrx.upload.maximum_size=65536
+arbotixrx.upload.maximum_data_size=65536
 arbotixrx.upload.speed=38400
+
+arbotixrx.bootloader.tool=avrdude
 arbotixrx.bootloader.low_fuses=0xFF
 arbotixrx.bootloader.high_fuses=0xDC
 arbotixrx.bootloader.extended_fuses=0xFD
 arbotixrx.bootloader.file=atmega644p/ATmegaBOOT_644P.hex
 arbotixrx.bootloader.unlock_bits=0x3F
 arbotixrx.bootloader.lock_bits=0x0F
+
+# default board may be overridden by the cpu menu
 arbotixrx.build.mcu=atmega644p
 arbotixrx.build.f_cpu=16000000L
 arbotixrx.build.core=arduino
 arbotixrx.build.variant=rxshield
+arbotixrx.build.board=AVR_MEGA644P_RXSHIELD
 
 #####################################################################
 
 #arbotix2.name=ArbotiX2
+
+#arbotix2.upload.tool=avrdude
 #arbotix2.upload.protocol=arduino
-#arbotix2.upload.maximum_size=65536
+#arbotix2.upload.maximum_data_size=65536
 #arbotix2.upload.speed=38400
+
+#arbotix2.bootloader.tool=avrdude
 #arbotix2.bootloader.low_fuses=0xFF
 #arbotix2.bootloader.high_fuses=0xDC
 #arbotix2.bootloader.extended_fuses=0xFD
 #arbotix2.bootloader.file=atmega644p/ATmegaBOOT_644P.hex
 #arbotix2.bootloader.unlock_bits=0x3F
 #arbotix2.bootloader.lock_bits=0x0F
+
+# default board may be overridden by the cpu menu
 #arbotix2.build.mcu=atmega644p
 #arbotix2.build.f_cpu=16000000L
 #arbotix2.build.core=arduino
 #arbotix2.build.variant=arbotix2
+#arbotix2.build.board=AVR_MEGA644P_V2
 
 #####################################################################
 
 #plus1280.name=ArbotiX+ (1280)
+
+#plus1280.upload.tool=avrdude
 #plus1280.upload.protocol=stk500
-#plus1280.upload.maximum_size=126976
+#plus1280.upload.maximum_data_size=126976
 #plus1280.upload.speed=57600
+
+#plus1280.bootloader.tool=avrdude
 #plus1280.bootloader.low_fuses=0xFF
 #plus1280.bootloader.high_fuses=0xDA
 #plus1280.bootloader.extended_fuses=0xF5
 #plus1280.bootloader.file=arduino:atmega/ATmegaBOOT_168_atmega1280.hex
 #plus1280.bootloader.unlock_bits=0x3F
 #plus1280.bootloader.lock_bits=0x0F
+
+# default board may be overridden by the cpu menu
 #plus1280.build.mcu=atmega1280
 #plus1280.build.f_cpu=16000000L
 #plus1280.build.core=arduino
 #plus1280.build.variant=arbotixPlus1280
-
+#plus1280.build.board=AVR_MEGA1280_PLUS

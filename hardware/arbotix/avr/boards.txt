@@ -7,7 +7,8 @@ arbotix.name=Arbotix-M
 
 arbotix.upload.tool=avrdude
 arbotix.upload.protocol=arduino
-arbotix.upload.maximum_data_size=65536
+arbotix.upload.maximum_size=65536
+arbotix.upload.maximum_data_size=4096
 arbotix.upload.speed=38400
 
 arbotix.bootloader.tool=avrdude
@@ -31,7 +32,8 @@ arbotixrx.name=ArbotiX w/ RX Shield
 
 arbotixrx.upload.tool=avrdude
 arbotixrx.upload.protocol=arduino
-arbotixrx.upload.maximum_data_size=65536
+arbotixrx.upload.maximum_size=65536
+arbotixrx.upload.maximum_data_size=4096
 arbotixrx.upload.speed=38400
 
 arbotixrx.bootloader.tool=avrdude
@@ -55,7 +57,8 @@ arbotixrx.build.board=AVR_MEGA644P_RXSHIELD
 
 #arbotix2.upload.tool=avrdude
 #arbotix2.upload.protocol=arduino
-#arbotix2.upload.maximum_data_size=65536
+#arbotix2.upload.maximum_size=65536
+#arbotix2.upload.maximum_data_size=4096
 #arbotix2.upload.speed=38400
 
 #arbotix2.bootloader.tool=avrdude
@@ -79,7 +82,8 @@ arbotixrx.build.board=AVR_MEGA644P_RXSHIELD
 
 #plus1280.upload.tool=avrdude
 #plus1280.upload.protocol=stk500
-#plus1280.upload.maximum_data_size=126976
+#plus1280.upload.maximum_size=126976
+#plus1280.upload.maximum_data_size=4096
 #plus1280.upload.speed=57600
 
 #plus1280.bootloader.tool=avrdude

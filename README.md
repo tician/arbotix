@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 See docs at http://vanadiumlabs.github.io/arbotix/
 
 Installation is simple: copy-merge the hardware folder into your sketchbook's hardware folder, and restart the Arduino-1.5.x IDE.
@@ -13,4 +12,3 @@ http://learn.trossenrobotics.com/projects/182-arbotix-getting-started-guide-ardu
 Documentation
 
 http://learn.trossenrobotics.com/projects/181-arbotix-1-6-documentation.html
->>>>>>> arduino-1.6

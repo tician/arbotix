@@ -39,8 +39,8 @@
           },
           "url": "https://tician.github.io/arbotix/boards/arbotix-0.0.2.tar.bz2",
           "archiveFileName": "arbotix-0.0.2.tar.bz2",
-          "checksum": "SHA-256:4b0600e0809b048f6ee6276d0790d25080f880f8e7b7669ea7ea2f45bc1fc07c",
-          "size": "163357",
+          "checksum": "SHA-256:b47b77da26732363639cdc2f65d33a166b0c4b7d2beae72b9c2510f9c6d61c5d",
+          "size": "163965",
           "boards": [
             { "name": "Arbotix-m" },
             { "name": "Arbotix (original)" },

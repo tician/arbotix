@@ -1,0 +1,47 @@
+{
+  "packages": [
+    {
+      "name": "arbotix",
+      "maintainer": "tician",
+      "email": "nope@nope.com",
+      "websiteURL": "https://github.com/tician/arbotix",
+      "help": {
+        "online": "http://forums.trossenrobotics.com/"
+      },
+      "platforms": [
+        {
+          "name": "Arbotix AVR Boards",
+          "architecture": "avr",
+          "version": "0.0.0",
+          "category": "Arduino",
+          "help": {
+            "online": "http://forums.trossenrobotics.com/"
+          },
+          "url": "https://tician.github.io/arbotix/boards/arbotix-0.0.0.tar.bz2",
+          "archiveFileName": "arbotix-0.0.0.tar.bz2",
+          "checksum": "SHA-256:",
+          "size": "",
+          "boards": [
+            { "name": "Arbotix-m" },
+            { "name": "Arbotix (original)" },
+            { "name": "Arbotix2 (ATmega644p)" },
+            { "name": "Arbotix+ (ATmega1280)" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "version": "4.8.1-arduino5",
+              "name": "avr-gcc"
+            },
+            {
+              "packager": "arduino",
+              "version": "6.0.1-arduino5",
+              "name": "avrdude"
+            }
+          ]
+        }
+      ],
+      "tools": [],
+    }
+  ]
+}

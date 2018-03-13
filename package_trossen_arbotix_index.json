@@ -48,6 +48,26 @@
             { "name": "Arbotix+ (ATmega1280)" }
           ],
           "toolsDependencies": []
+        },
+        {
+          "name": "Arbotix AVR Boards",
+          "architecture": "avr",
+          "version": "0.0.3",
+          "category": "Arduino",
+          "help": {
+            "online": "http://forums.trossenrobotics.com/"
+          },
+          "url": "https://tician.github.io/arbotix/boards/arbotix-0.0.1.tar.bz2",
+          "archiveFileName": "arbotix-0.0.1.tar.bz2",
+          "checksum": "SHA-256:ef017596fa336eab7737e7bebe9f0f0cc1c462e88456ba0b7979dce3cb12bf40",
+          "size": "195074",
+          "boards": [
+            { "name": "Arbotix-m" },
+            { "name": "Arbotix (original)" },
+            { "name": "Arbotix2 (ATmega644p)" },
+            { "name": "Arbotix+ (ATmega1280)" }
+          ],
+          "toolsDependencies": []
         }
 
       ],
